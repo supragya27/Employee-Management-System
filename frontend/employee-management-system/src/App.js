@@ -1,10 +1,12 @@
 import React from 'react'
+import ListEmployee from './components/ListEmployee'
+import {Container} from 'react-bootstrap'
 
 function App() {
   return (
-    <div>
-      
-    </div>
+    <Container>
+      <ListEmployee/>
+    </Container>
   )
 }
 
