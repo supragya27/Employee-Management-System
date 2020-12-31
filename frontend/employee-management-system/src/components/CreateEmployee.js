@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import EmployeeService from '../services/EmployeeService'
 export default class CreateEmployee extends Component {
     constructor(props){
         super(props)
@@ -17,7 +18,10 @@ export default class CreateEmployee extends Component {
     saveEmployee=(e)=>{
         e.preventDefault();
         let employee ={firstName: this.state.firstName, lastName: this.state.lastName, emailId:this.state.emailId}
-        console.log(employee);
+        EmployeeService.createEmployee(employee)
+        .then(res=>{
+            this.props.history.push('/employees')
+        })
     }
     changeFirstNameHandler=(event)=>{
         this.setState({firstName: event.target.value})
