@@ -14,7 +14,7 @@ function App() {
           <Header/>
             <Container>
               <Switch>               
-                <Route path="/" component={ListEmployee}></Route>
+                <Route exact path="/" component={ListEmployee}></Route>
                 <Route path="/employees" component={ListEmployee}></Route>
               </Switch>
             </Container>
