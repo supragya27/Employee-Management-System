@@ -9,6 +9,11 @@ export class ListEmployee extends Component {
             employees:[]
         }
         this.addEmployee=this.addEmployee.bind(this)
+        this.editEmployee=this.editEmployee.bind(this)
+    }
+
+    editEmployee(id){
+        this.props.history.push(`/update-employee/${id}`)
     }
 
     componentDidMount(){
@@ -24,7 +29,7 @@ export class ListEmployee extends Component {
     render() {
         return (
             <div>
-            <button type="button" class="btn btn-primary" onClick={this.addEmployee}>Add Employee</button>
+            <button type="button" class="btn btn-success" onClick={this.addEmployee}>Add Employee</button>
             <hr/>            
             <center>
             <h2>Employee List</h2>
@@ -46,6 +51,9 @@ export class ListEmployee extends Component {
                             <td> {emp.firstName} </td>
                             <td> {emp.lastName} </td>
                             <td> {emp.emailId} </td>
+                            <td>
+                                <button onClick={()=>this.editEmployee(emp.id)} className="btn btn-info">Update</button>
+                            </td>
                            </tr>
                        )
                    }
