@@ -31,7 +31,10 @@ export default class UpdateEmployee extends Component {
     updateEmployee=(e)=>{
         e.preventDefault();
         let employee ={firstName: this.state.firstName, lastName: this.state.lastName, emailId:this.state.emailId}
-        console.log(employee)
+        EmployeeService.updateEmployee(employee, this.state.id)
+        .then(res=>{
+            this.props.history.push('/employees')
+        })
     }
     changeFirstNameHandler=(event)=>{
         this.setState({firstName: event.target.value})
