@@ -13,6 +13,10 @@ export class ListEmployee extends Component {
         this.deleteEmployee=this.deleteEmployee.bind(this)
     }
 
+    viewEmployee(id){
+        this.props.history.push(`/view-employee/${id}`)
+    }
+
     deleteEmployee(id){
         EmployeeService.deleteEmployee(id)
         .then(res=>{
@@ -63,7 +67,8 @@ export class ListEmployee extends Component {
                             <td> {emp.emailId} </td>
                             <td>
                                 <button onClick={()=>this.editEmployee(emp.id)} className="btn btn-info">Update</button>&nbsp;
-                                <button onClick={()=>this.deleteEmployee(emp.id)} className="btn btn-danger">Delete</button>
+                                <button onClick={()=>this.deleteEmployee(emp.id)} className="btn btn-danger">Delete</button>&nbsp;
+                                <button onClick={()=>this.viewEmployee(emp.id)} className="btn btn-success">View</button>
                             </td>
                            </tr>
                        )
