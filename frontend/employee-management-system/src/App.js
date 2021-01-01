@@ -22,7 +22,6 @@ function App() {
                 <Route path="/update-employee/:id" component={UpdateEmployee}></Route>
               </Switch>
             </Container>
-          <Footer/>
         </>
       </Router>
     </div>

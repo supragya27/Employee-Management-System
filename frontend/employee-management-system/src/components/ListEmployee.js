@@ -10,6 +10,16 @@ export class ListEmployee extends Component {
         }
         this.addEmployee=this.addEmployee.bind(this)
         this.editEmployee=this.editEmployee.bind(this)
+        this.deleteEmployee=this.deleteEmployee.bind(this)
+    }
+
+    deleteEmployee(id){
+        EmployeeService.deleteEmployee(id)
+        .then(res=>{
+            this.setState({
+                employees: this.state.employees.filter(e=>e.id!==id)
+            })
+        })
     }
 
     editEmployee(id){
@@ -52,7 +62,8 @@ export class ListEmployee extends Component {
                             <td> {emp.lastName} </td>
                             <td> {emp.emailId} </td>
                             <td>
-                                <button onClick={()=>this.editEmployee(emp.id)} className="btn btn-info">Update</button>
+                                <button onClick={()=>this.editEmployee(emp.id)} className="btn btn-info">Update</button>&nbsp;
+                                <button onClick={()=>this.deleteEmployee(emp.id)} className="btn btn-danger">Delete</button>
                             </td>
                            </tr>
                        )
